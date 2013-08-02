@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+       default-lazy-init="true">
+
+   	   <context:annotation-config/> <!-- 定义使用注解注入 -->
+       <context:component-scan base-package="com.gy.barter"/><!-- 扫描要注解的包 -->
+    
+    <!-- Transaction -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 改用注解 <bean id="registerAction" class="com.gy.barter.web.action.RegisterAction" />-->
+	
+	<bean id="cityDaoImpl" class="com.gy.barter.dao.impl.CityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+  
+   <!-- <bean id="publishAction" class="com.gy.barter.web.action.PublishAction" /> -->
+    <!-- =================================================================== -->
+    <!-- Security class from Spring Security - used to configure Password    -->
+    <!-- Encryption in UserManagerImpl. Can override in security.xml.        -->
+    <!-- =================================================================== -->
+
+
+
+</beans>

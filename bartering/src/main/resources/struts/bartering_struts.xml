@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="bartering_admin" namespace="/admin" extends="struts-default">
+	   
+	   <!--  <action name="add" class="newPicAction" method="newadd">
+	    <interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/gif,image/jpeg,image/jpg,image/pjpeg,application/x-zip-compressed,application/zip,application/octet-stream
+				</param>
+				<param name="maximumSize">6291456</param>
+			</interceptor-ref>
+	   <interceptor-ref name="basicStack" />
+	    
+			<result name="success" type="redirect">list.sip?picGroup.id=${picGroup.id}&amp;scid=${scid}&amp;zykgl_flag=${zykgl_flag}</result>
+			<result name="error" type="redirect">
+				addShow.sip?scid=${scid}
+			</result>
+			<result name="	" type="redirect">
+				goAddMediaPic.sip?scid=${scid}
+			</result>
+		</action>
+		 -->
+		
+		
+		 <action name="userRegister" class="registerAction" method="register">
+			
+			<result name="success">
+				/WEB-INF/pages/admin/register.jsp
+			</result>
+
+		</action>
+		
+		
+	</package>
+	
+	<package name="bartering_front" namespace="/front" extends="struts-default">
+	
+	<!-- 	<action name="publish" class="publishAction" method="add">
+			
+			<result name="success">
+				/WEB-INF/pages/front/publish.jsp
+			</result>
+
+		</action>
+	 -->
+	 	
+		<action name="*" method="{1}" class="publishAction" >
+			
+			<result name="success">
+				/WEB-INF/pages/front/publish.jsp
+			</result>
+			<result name="message">
+				/WEB-INF/pages/front/message.jsp
+			</result>
+
+		</action>
+	
+	</package>
+	
+</struts>
